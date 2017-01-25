@@ -55,6 +55,7 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 
 EXPOSE 80 443 22
 CMD ["service", "ssh", "start;"]
+CMD ["service", "pgp5-fpm", "start;"]
 CMD ["nginx", "-g", "daemon off;"]
 CMD ["mkdir", "-p", "/var/www/html/"]
 CMD ["touch", "/var/www/html/index.html"]
