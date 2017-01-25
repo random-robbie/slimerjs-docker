@@ -47,6 +47,11 @@ RUN apt-get update && curl -sL https://deb.nodesource.com/setup_7.x | bash - && 
     apt-get install -y php5 php5-fpm php5-cli php5-gd php5-ssh2
     
     
+RUN wget -O /tmp/slim.zip http://download.slimerjs.org/releases/0.10.2/slimerjs-0.10.2.zip && unzip slim.zip
+RUN mv /tmp/slimerjs-0.10.2/ /home/slim/
+RUN echo '#!/bin/bash\nxvfb-run /home/slim/slimerjs "$@"' > /home/slim/slimerjs
+RUN chmod 755 /home/slim/slimerjs
+RUN ln -s /home/slim/slimerjs /usr/bin/slimerjs 
     
     
 # forward request and error logs to docker log collector
