@@ -44,7 +44,7 @@ RUN apt-get update && curl -sL https://deb.nodesource.com/setup_7.x | bash - && 
     npm init -y \
     npm install fs-extra && \
     npm install slimerjs && \
-    apt-get install -y php5 php5-fpm php5-cli php5-gd php5-ssh2 php5-xml
+    apt-get install -y php5 php5-fpm php5-cli php5-gd php5-ssh2
     
     
     
