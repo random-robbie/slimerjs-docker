@@ -43,16 +43,7 @@ RUN apt-get update && curl -sL https://deb.nodesource.com/setup_7.x | bash - && 
     apt-get install -y nodejs && \
     npm init -y \
     npm install fs-extra && \
-    wget -O /tmp/slimerjs-0.10.2.zip http://download.slimerjs.org/releases/0.10.2/slimerjs-0.10.2.zip && \
-    unzip slimerjs-0.10.2.zip && \
-    mkdir -p /srv/var && \
-    mv /tmp/slimerjs-0.10.2/ /srv/var/slimerjs && \
-    echo '#!/bin/bash\nxvfb-run /srv/var/slimerjs/slimerjs "$@"' > /srv/var/slimerjs/slimerjs && \
-    chmod 755 /srv/var/slimerjs/slimerjs && \
-    ln -s /srv/var/slimerjs/slimerjs /usr/bin/slimerjs && \
-    
-    
-    
+    npm install slimerjs && \
     apt-get install -y php5 php5-fpm php5-cli php5-gd php5-ssh2
     
     
