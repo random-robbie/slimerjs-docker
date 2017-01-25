@@ -16,8 +16,8 @@ server {
 
 	# SSL configuration
 	#
-	listen 80  http2 default_server;
-	listen [::]:80  http2 default_server;
+	listen 80  default_server;
+	listen [::]:80  default_server;
 
   root /var/www/html;
 	index index.php index.html index.htm;	
