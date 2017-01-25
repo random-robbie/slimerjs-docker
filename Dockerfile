@@ -20,8 +20,9 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC64107
 	
 RUN apt-get update && apt-get install -y curl wget
 	
-RUN apt-get update && echo "deb http://mozilla.debian.net/ jessie-backports firefox-release"  >> /etc/apt/sources.list \
-	&& wget mozilla.debian.net/pkg-mozilla-archive-keyring_1.1_all.deb \
+RUN apt-get update \ 
+	&& echo "deb http://mozilla.debian.net/ jessie-backports firefox-release"  >> /etc/apt/sources.list \
+	&& wget "http://mozilla.debian.net/pkg-mozilla-archive-keyring_1.1_all.deb" \
 	&& dpkg -i pkg-mozilla-archive-keyring_1.1_all.deb \
 	&& apt-get update \
 	&& apt-get install -y -t jessie-backports firefox
