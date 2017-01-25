@@ -47,9 +47,9 @@ RUN apt-get update && curl -sL https://deb.nodesource.com/setup_7.x | bash - && 
     unzip slimerjs-0.10.2.zip && \
     mkdir -p /srv/var && \
     mv /tmp/slimerjs-0.10.2/ /srv/var/slimerjs && \
-    echo '#!/bin/bash\nxvfb-run /srv/var/slimerjs/slimerjs "$@"' > /srv/var/slimerjs/slimerjs.sh && \
-    chmod 755 /srv/var/slimerjs/slimerjs.sh && \
-    ln -s /srv/var/slimerjs/slimerjs.sh /usr/bin/slimerjs && \
+    echo '#!/bin/bash\nxvfb-run /srv/var/slimerjs/slimerjs "$@"' > /srv/var/slimerjs/slimerjs && \
+    chmod 755 /srv/var/slimerjs/slimerjs && \
+    ln -s /srv/var/slimerjs/slimerjs /usr/bin/slimerjs && \
     
     
     
