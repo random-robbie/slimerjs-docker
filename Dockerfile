@@ -66,7 +66,7 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
 
 EXPOSE 80 443 22
+CMD ["export" "SLIMERJSLAUNCHER=/usr/share/firefox/firefox;"]
 CMD ["service", "ssh", "start;"]
 CMD ["service", "php5-fpm", "start;"]
 CMD ["nginx", "-g", "daemon off;"]
-CMD ["export" "SLIMERJSLAUNCHER=/usr/share/firefox/firefox;"]
