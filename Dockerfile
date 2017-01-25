@@ -24,7 +24,7 @@ RUN echo "deb http://mozilla.debian.net/ jessie-backports firefox-release"  >> /
 RUN wget "http://mozilla.debian.net/pkg-mozilla-archive-keyring_1.1_all.deb"
 RUN dpkg -i pkg-mozilla-archive-keyring_1.1_all.deb
 RUN apt-get update
-RUN apt-get install -y jessie-backports firefox
+RUN apt-get install -y firefox
 RUN apt-get install -y git libxrender-dev unzip libdbus-glib-1-2
 RUN apt-get install -y nano nano xvfb  libasound2 libgeoip-dev libgtk2.0-0 bzip2 python
 
