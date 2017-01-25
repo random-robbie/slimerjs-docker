@@ -69,3 +69,4 @@ EXPOSE 80 443 22
 CMD ["service", "ssh", "start;"]
 CMD ["service", "php5-fpm", "start;"]
 CMD ["nginx", "-g", "daemon off;"]
+CMD ["export" "SLIMERJSLAUNCHER=/usr/share/firefox/firefox;"]
