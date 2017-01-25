@@ -54,7 +54,6 @@ RUN wget http://download.slimerjs.org/releases/0.10.2/slimerjs-0.10.2.zip -O /tm
 RUN mkdir /home/slim/
 RUN unzip /tmp/slim.zip -d /home/slim/
 RUN mv /home/slim/slimerjs-0.10.2 /home/slim/slimerjs
-RUN echo '#!/bin/bash\nxvfb-run /home/slim/slimerjs "$@"' > /home/slim/slimerjs
 RUN chmod 755 /home/slim/slimerjs
 RUN ln -s /home/slim/slimerjs /usr/bin/slimerjs
     
