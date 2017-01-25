@@ -19,9 +19,9 @@ RUN apt-get install --no-install-recommends --no-install-suggests -y \
 						gettext-base \
 	&& rm -rf /var/lib/apt/lists/*
 # Remove the default Nginx configuration file
-RUN rm -v /etc/nginx/sites-available/default
+#RUN rm -v /etc/nginx/sites-available/default
 # Add Nginx Config
-RUN wget --no-check-certificate -O /etc/nginx/sites-available/default https://raw.githubusercontent.com/txt3rob/slimerjs-docker/master/default
+#RUN wget --no-check-certificate -O /etc/nginx/sites-available/default https://raw.githubusercontent.com/txt3rob/slimerjs-docker/master/default
 	
 
 RUN apt-get update 
