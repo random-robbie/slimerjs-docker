@@ -54,10 +54,11 @@ RUN wget http://download.slimerjs.org/releases/0.10.2/slimerjs-0.10.2.zip -O /tm
 RUN mkdir /home/slim/
 RUN unzip /tmp/slim.zip -d /home/slim/
 RUN mv /home/slim/slimerjs-0.10.2 /home/slim/slimerjs
-RUN chmod 755 /home/slim/slimerjs
-RUN ln -s /home/slim/slimerjs /usr/bin/slimerjs
-RUN mkdir -p /home/www/html/
-RUN touch /home/www/html/index.html
+RUN chmod 755 /home/slim/slimerjs/slimerjs
+RUN ln -s /home/slim/slimerjs/slimerjs /usr/bin/slimerjs
+RUN chmod 755 /usr/bin/slimerjs
+RUN mkdir -p /var/www/html/
+RUN touch /var/www/html/index.html
     
     
 # forward request and error logs to docker log collector
