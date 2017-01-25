@@ -10,6 +10,7 @@ RUN apt-get install  curl wget -y
 
 RUN apt-get -y install debian-keyring
 RUN echo "deb http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list
+RUN apt-get update
 RUN apt-get install -f --no-install-recommends --no-install-suggests -y \
 						ca-certificates \
 						nginx=${NGINX_VERSION} \
