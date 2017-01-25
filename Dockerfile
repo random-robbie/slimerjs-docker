@@ -17,6 +17,10 @@ RUN apt-get install --no-install-recommends --no-install-suggests -y \
 						nginx-module-njs \
 						gettext-base \
 	&& rm -rf /var/lib/apt/lists/*
+# Remove the default Nginx configuration file
+RUN rm -v /etc/nginx/nginx.conf
+# Add Nginx Config
+RUN ADD nginx.conf /etc/nginx/sites-avalible/
 	
 RUN apt-get update && apt-get install -y curl wget
 RUN apt-get update 
@@ -39,7 +43,7 @@ RUN apt-get update && curl -sL https://deb.nodesource.com/setup_7.x | bash - && 
     npm init -y \
     npm install fs-extra && \
     npm install slimerjs && \
-    apt-get install -y php5 php5-fpm php5-cli
+    apt-get install -y php5 php5-fpm php5-cli php5-gd php5-ssh2 php5-xml
     
     
     
