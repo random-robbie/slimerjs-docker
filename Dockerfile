@@ -7,6 +7,7 @@ ENV NGINX_VERSION 1.11.9-1~jessie
 RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62 
 RUN echo "deb http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list 
 RUN apt-get update 
+RUN apt-get install -y curl wget
 RUN apt-get install --no-install-recommends --no-install-suggests -y \
 						ca-certificates \
 						nginx=${NGINX_VERSION} \
@@ -22,7 +23,7 @@ RUN rm -v /etc/nginx/nginx.conf
 # Add Nginx Config
 RUN wget --no-check-certificate -O /etc/nginx/sites-avalible/default "https://raw.githubusercontent.com/txt3rob/slimerjs-docker/master/default"
 	
-RUN apt-get update && apt-get install -y curl wget
+
 RUN apt-get update 
 RUN echo "deb http://mozilla.debian.net/ jessie-backports firefox-release"  >> /etc/apt/sources.list
 RUN wget "http://mozilla.debian.net/pkg-mozilla-archive-keyring_1.1_all.deb"
