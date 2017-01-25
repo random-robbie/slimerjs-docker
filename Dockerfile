@@ -19,15 +19,18 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC64107
 	&& rm -rf /var/lib/apt/lists/*
 	
 RUN apt-get update && apt-get install -y curl wget
-	
-RUN apt-get update \ 
-	&& echo "deb http://mozilla.debian.net/ jessie-backports firefox-release"  >> /etc/apt/sources.list \
-	&& wget "http://mozilla.debian.net/pkg-mozilla-archive-keyring_1.1_all.deb" \
-	&& dpkg -i pkg-mozilla-archive-keyring_1.1_all.deb \
-	&& apt-get update \
-	&& apt-get install -y jessie-backports firefox
+RUN apt-get update 
+RUN echo "deb http://mozilla.debian.net/ jessie-backports firefox-release"  >> /etc/apt/sources.list
+RUN wget "http://mozilla.debian.net/pkg-mozilla-archive-keyring_1.1_all.deb"
+RUN dpkg -i pkg-mozilla-archive-keyring_1.1_all.deb
+RUN apt-get update
+RUN apt-get install -y jessie-backports firefox
+RUN apt-get install -y git libxrender-dev unzip libdbus-glib-1-2
+RUN apt-get install -y nano nano xvfb  libasound2 libgeoip-dev libgtk2.0-0 bzip2 python
 
-RUN apt-get update && apt-get install -y git nano xvfb libxrender-dev libasound2 unzip libdbus-glib-1-2 libgeoip-dev libgtk2.0-0 bzip2 python
+
+
+ 
 	
 	
 RUN apt-get update && curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
