@@ -6,7 +6,7 @@ ENV NGINX_VERSION 1.11.9-1~jessie
 ENV SLIMERJSLAUNCHER=/usr/share/firefox/firefox
 
 RUN apt-get update 
-RUN apt-get install -y curl wget
+RUN apt-get install  curl wget -y
 
 RUN apt-get -y install debian-keyring
 RUN echo "deb http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list
