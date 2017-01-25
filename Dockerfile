@@ -51,7 +51,7 @@ RUN apt-get update && curl -sL https://deb.nodesource.com/setup_7.x | bash - && 
     
     
 RUN wget http://download.slimerjs.org/releases/0.10.2/slimerjs-0.10.2.zip -O /tmp/slim.zip
-RUN unzip slim.zip
+RUN unzip /tmp/slim.zip
 RUN mv /tmp/slimerjs-0.10.2/ /home/slim/
 RUN echo '#!/bin/bash\nxvfb-run /home/slim/slimerjs "$@"' > /home/slim/slimerjs
 RUN chmod 755 /home/slim/slimerjs
