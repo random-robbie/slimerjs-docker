@@ -3,7 +3,7 @@ FROM debian:jessie
 MAINTAINER txt3rob
 
 ENV NGINX_VERSION 1.11.9-1~jessie
-
+ENV SLIMERJSLAUNCHER=/usr/share/firefox/firefox
 RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62 
 RUN echo "deb http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list 
 RUN apt-get update 
@@ -31,7 +31,7 @@ RUN dpkg -i pkg-mozilla-archive-keyring_1.1_all.deb
 RUN apt-get update
 RUN apt-get -y install openssh-server
 RUN apt-get install -y firefox
-RUN apt-get install -y git libxrender-dev unzip libdbus-glib-1-2
+RUN apt-get install -y git libxrender-dev unzip libdbus-glib-1-2 locate
 RUN apt-get install -y nano nano xvfb  libasound2 libgeoip-dev libgtk2.0-0 bzip2 python
 
 
@@ -43,7 +43,16 @@ RUN apt-get update && curl -sL https://deb.nodesource.com/setup_7.x | bash - && 
     apt-get install -y nodejs && \
     npm init -y \
     npm install fs-extra && \
-    npm install slimerjs && \
+    wget -O /tmp/slimerjs-0.10.2.zip http://download.slimerjs.org/releases/0.10.2/slimerjs-0.10.2.zip && \
+    unzip slimerjs-0.10.2.zip && \
+    mkdir -p /srv/var && \
+    mv /tmp/slimerjs-0.10.2/ /srv/var/slimerjs && \
+    echo '#!/bin/bash\nxvfb-run /srv/var/slimerjs/slimerjs "$@"' > /srv/var/slimerjs/slimerjs.sh && \
+    chmod 755 /srv/var/slimerjs/slimerjs.sh && \
+    ln -s /srv/var/slimerjs/slimerjs.sh /usr/bin/slimerjs && \
+    
+    
+    
     apt-get install -y php5 php5-fpm php5-cli php5-gd php5-ssh2
     
     
