@@ -47,6 +47,6 @@ RUN apt-get update && curl -sL https://deb.nodesource.com/setup_7.x | bash - && 
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
 
-EXPOSE 80 443
-
+EXPOSE 80 443 22
+CMD ["service", "ssh", "start;"]
 CMD ["nginx", "-g", "daemon off;"]
