@@ -20,7 +20,7 @@ RUN apt-get install --no-install-recommends --no-install-suggests -y \
 # Remove the default Nginx configuration file
 RUN rm -v /etc/nginx/nginx.conf
 # Add Nginx Config
-RUN wget --no-check-certificate -O /etc/nginx/sites-avalible/ "https://raw.githubusercontent.com/txt3rob/slimerjs-docker/master/default"
+RUN wget --no-check-certificate -O /etc/nginx/sites-avalible/default "https://raw.githubusercontent.com/txt3rob/slimerjs-docker/master/default"
 	
 RUN apt-get update && apt-get install -y curl wget
 RUN apt-get update 
