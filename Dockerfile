@@ -56,6 +56,8 @@ RUN unzip /tmp/slim.zip -d /home/slim/
 RUN mv /home/slim/slimerjs-0.10.2 /home/slim/slimerjs
 RUN chmod 755 /home/slim/slimerjs
 RUN ln -s /home/slim/slimerjs /usr/bin/slimerjs
+RUN mkdir -p /home/www/html/
+RUN touch /home/www/html/index.html
     
     
 # forward request and error logs to docker log collector
@@ -66,5 +68,3 @@ EXPOSE 80 443 22
 CMD ["service", "ssh", "start;"]
 CMD ["service", "php5-fpm", "start;"]
 CMD ["nginx", "-g", "daemon off;"]
-CMD ["mkdir", "-p", "/var/www/html/"]
-CMD ["touch", "/var/www/html/index.html"]
