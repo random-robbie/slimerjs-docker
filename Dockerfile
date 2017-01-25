@@ -37,6 +37,7 @@ RUN apt-get install -y nano nano xvfb  libasound2 libgeoip-dev libgtk2.0-0 bzip2
 RUN apt-get update && curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
     apt-get install -y nodejs && \
     npm init -y \
+    npm install fs-extra && \
     npm install slimerjs && \
     apt-get install -y php5 php5-fpm php5-cli
     
