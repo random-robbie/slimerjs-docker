@@ -1,10 +1,6 @@
 FROM justckr/ubuntu-nginx-php:php7
 
 MAINTAINER txt3rob
-
-
-ENV SLIMERJSLAUNCHER=/usr/share/firefox/firefox
-
 RUN apt-get update 
 RUN apt-get install  curl wget -y
 
