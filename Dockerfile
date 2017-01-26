@@ -35,5 +35,5 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
 
 EXPOSE 8080 22
-CMD ["/usr/sbin/sshd", "-D"]
+CMD ["service", "ssh", "start"]
 
