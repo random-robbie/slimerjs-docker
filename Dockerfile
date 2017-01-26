@@ -27,9 +27,8 @@ RUN apt-get install -y nano xvfb  libasound2 libgeoip-dev libgtk2.0-0 bzip2 pyth
 RUN apt-get update && curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
     apt-get install -y nodejs && \
     npm init -y \
-    npm install fs-extra && \
-    npm install slimerjs && \
-    apt-get install -y php5 php5-fpm php5-cli php5-gd php5-ssh2
+    npm install fs-extra --save-dev && \
+    npm install slimerjs --save-dev && \
     
     
 RUN wget http://download.slimerjs.org/releases/0.10.2/slimerjs-0.10.2.zip -O /tmp/slim.zip
