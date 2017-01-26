@@ -38,8 +38,6 @@ RUN mv /home/slim/slimerjs-0.10.2 /home/slim/slimerjs
 RUN chmod 755 /home/slim/slimerjs/slimerjs
 RUN ln -s /home/slim/slimerjs/slimerjs /usr/bin/slimerjs
 RUN chmod 755 /usr/bin/slimerjs
-RUN mkdir -p /var/www/html/
-RUN touch /var/www/html/index.html
     
     
 # forward request and error logs to docker log collector
