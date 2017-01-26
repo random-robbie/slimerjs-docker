@@ -27,8 +27,9 @@ RUN chmod 755 /home/slim/slimerjs/slimerjs
 RUN ln -s /home/slim/slimerjs/slimerjs /usr/bin/slimerjs
 RUN chmod 755 /usr/bin/slimerjs
 RUN export SLIMERJSLAUNCHER=/usr/bin/firefox
-RUN rm /app/public/index.php
-RUN touch /app/public/index.html
+RUN rm /app/src/public/index.php
+RUN rm /app/src/public/info.php
+RUN touch /app/src/public/index.html
     
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
