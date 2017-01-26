@@ -19,19 +19,8 @@ RUN apt-get install -y firefox
 RUN apt-get install -y git libxrender-dev unzip libdbus-glib-1-2 locate
 RUN apt-get install -y nano xvfb  libasound2 libgeoip-dev libgtk2.0-0 bzip2 python
 RUN apt-get install -y x11-apps
-
-
-
- 
-	
-	
-RUN apt-get update && curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
-    apt-get install -y nodejs && \
-    npm init -y \
-    npm install fs-extra --save-dev && \
-    npm install slimerjs --save-dev && \
-    
-    
+RUN apt-get update && curl -sL https://deb.nodesource.com/setup_7.x | bash -
+RUN apt-get install -y nodejs
 RUN wget http://download.slimerjs.org/releases/0.10.2/slimerjs-0.10.2.zip -O /tmp/slim.zip
 RUN mkdir /home/slim/
 RUN unzip /tmp/slim.zip -d /home/slim/
