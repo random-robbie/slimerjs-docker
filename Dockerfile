@@ -24,7 +24,7 @@ RUN mv /home/slim/slimerjs-0.10.2 /home/slim/slimerjs
 RUN chmod 755 /home/slim/slimerjs/slimerjs
 RUN ln -s /home/slim/slimerjs/slimerjs /usr/bin/slimerjs
 RUN chmod 755 /usr/bin/slimerjs
-    
+RUN export SLIMERJSLAUNCHER=/usr/bin/firefox
     
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
@@ -33,4 +33,5 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 EXPOSE 8080 22
 CMD ["service", "ssh", "start"]
 CMD ["/bin/bash", "/start.sh"]
+
 
