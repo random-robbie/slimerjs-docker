@@ -1,32 +1,14 @@
-FROM debian:jessie
+FROM justckr/ubuntu-nginx-php:php7
 
 MAINTAINER txt3rob
 
-ENV NGINX_VERSION 1.11.9-1~jessie
+
 ENV SLIMERJSLAUNCHER=/usr/share/firefox/firefox
 
 RUN apt-get update 
 RUN apt-get install  curl wget -y
 
 RUN apt-get -y install debian-keyring
-RUN echo "deb http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list
-RUN apt-get update
-RUN apt-get install --force-yes --no-install-recommends --no-install-suggests -y \
-						ca-certificates \
-						nginx=${NGINX_VERSION} \
-						nginx-module-xslt \
-						nginx-module-geoip \
-						nginx-module-image-filter \
-						nginx-module-perl \
-						nginx-module-njs \
-						gettext-base \
-	&& rm -rf /var/lib/apt/lists/*
-# Remove the default Nginx configuration file
-RUN rm -v /etc/nginx/conf.d/default.conf
-# Add Nginx Config
-RUN wget --no-check-certificate -O /etc/nginx/conf.d/default.conf https://raw.githubusercontent.com/txt3rob/slimerjs-docker/master/default
-	
-
 RUN apt-get update 
 RUN echo "deb http://mozilla.debian.net/ jessie-backports firefox-release"  >> /etc/apt/sources.list
 RUN wget "http://mozilla.debian.net/pkg-mozilla-archive-keyring_1.1_all.deb"
@@ -35,7 +17,7 @@ RUN apt-get update
 RUN apt-get -y install openssh-server
 RUN apt-get install -y firefox
 RUN apt-get install -y git libxrender-dev unzip libdbus-glib-1-2 locate
-RUN apt-get install -y nano nano xvfb  libasound2 libgeoip-dev libgtk2.0-0 bzip2 python
+RUN apt-get install -y nano xvfb  libasound2 libgeoip-dev libgtk2.0-0 bzip2 python
 
 
 
@@ -65,8 +47,6 @@ RUN touch /var/www/html/index.html
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
 
-EXPOSE 80 443 22
+EXPOSE 8080
 CMD ["export" "SLIMERJSLAUNCHER=/usr/share/firefox/firefox;"]
-CMD ["service", "ssh", "start;"]
-CMD ["service", "php5-fpm", "start;"]
-CMD ["nginx", "-g", "daemon off;"]
+
