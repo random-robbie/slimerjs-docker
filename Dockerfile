@@ -36,4 +36,5 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 
 EXPOSE 8080 22
 CMD ["service", "ssh", "start"]
+CMD ["/bin/bash", "/start.sh"]
 
