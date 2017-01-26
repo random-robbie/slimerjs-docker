@@ -35,7 +35,7 @@ RUN touch /app/src/public/index.html
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
 
-EXPOSE 8080 22
+EXPOSE 8080 22 1337
 CMD ["service", "ssh", "start"]
 CMD ["/bin/bash", "/start.sh"]
 
