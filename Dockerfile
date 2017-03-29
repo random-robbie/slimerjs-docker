@@ -19,10 +19,10 @@ RUN apt-get install -y nano xvfb  libasound2 libgeoip-dev libgtk2.0-0 bzip2 pyth
 RUN apt-get install -y x11-apps
 RUN apt-get update && curl -sL https://deb.nodesource.com/setup_7.x | bash -
 RUN apt-get install -y nodejs
-RUN wget http://download.slimerjs.org/releases/0.10.2/slimerjs-0.10.2.zip -O /tmp/slim.zip
+RUN wget https://download.slimerjs.org/releases/0.10.3/slimerjs-0.10.3.zip -O /tmp/slim.zip
 RUN mkdir /home/slim/
 RUN unzip /tmp/slim.zip -d /home/slim/
-RUN mv /home/slim/slimerjs-0.10.2 /home/slim/slimerjs
+RUN mv /home/slim/slimerjs-0.10.3 /home/slim/slimerjs
 RUN chmod 755 /home/slim/slimerjs/slimerjs
 RUN ln -s /home/slim/slimerjs/slimerjs /usr/bin/slimerjs
 RUN chmod 755 /usr/bin/slimerjs
