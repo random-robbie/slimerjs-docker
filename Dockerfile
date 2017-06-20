@@ -14,7 +14,7 @@ RUN apt-get -y install openssh-server
 RUN apt-get purge firefox -y
 RUN apt-get install -y firefox
 #RUN apt-get install -y firefox=50.1.0+build2-0ubuntu0.16.04.1
-RUN apt-mark hold firefox
+#RUN apt-mark hold firefox
 RUN apt-get install -y git libxrender-dev unzip libdbus-glib-1-2 locate
 RUN apt-get install -y nano xvfb  libasound2 libgeoip-dev libgtk2.0-0 bzip2 python supervisor
 RUN apt-get install -y x11-apps
@@ -37,7 +37,7 @@ RUN rm /app/src/public/info.php
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
 
-EXPOSE 8080 22 1337
+EXPOSE 8080 22 1337 80
 CMD ["service", "ssh", "start"]
 CMD ["/bin/bash", "/start.sh"]
 
