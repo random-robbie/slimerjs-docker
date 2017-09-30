@@ -4,7 +4,7 @@ MAINTAINER txt3rob
 RUN apt-get update 
 RUN apt-get install  curl wget debian-keyring -y
 RUN apt-get update 
-RUN apt-get install -y firefox-esr
+RUN apt-get install -y firefox
 RUN apt-get install -y git libxrender-dev unzip libdbus-glib-1-2 locate nano xvfb  libasound2 libgeoip-dev libgtk2.0-0 bzip2 python supervisor 
 RUN apt-get install -y x11-apps
 RUN apt-get update && curl -sL https://deb.nodesource.com/setup_8.x | bash -
